@@ -1,0 +1,38 @@
+# Build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# .NET
+.dotnet/
+*.dll
+*.pdb
+*.nupkg
+*.snupkg
+project.assets.json
+project.nuget.cache
+
+# MonoGame content pipeline outputs
+Content/bin/
+Content/obj/
+*.mgstats
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+

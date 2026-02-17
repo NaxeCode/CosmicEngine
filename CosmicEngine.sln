@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmic.Game", "src\Cosmic.Game\Cosmic.Game.csproj", "{4974B986-E903-C4C1-B53A-43DDC44DF9E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmic.Engine", "src\Cosmic.Engine\Cosmic.Engine.csproj", "{51D267DA-C49D-4A40-A0B1-2215E24750F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4974B986-E903-C4C1-B53A-43DDC44DF9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4974B986-E903-C4C1-B53A-43DDC44DF9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4974B986-E903-C4C1-B53A-43DDC44DF9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4974B986-E903-C4C1-B53A-43DDC44DF9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51D267DA-C49D-4A40-A0B1-2215E24750F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D267DA-C49D-4A40-A0B1-2215E24750F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D267DA-C49D-4A40-A0B1-2215E24750F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51D267DA-C49D-4A40-A0B1-2215E24750F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9575A0E-1612-4CC8-A16A-4006BC8FA281}
+	EndGlobalSection
+EndGlobal
