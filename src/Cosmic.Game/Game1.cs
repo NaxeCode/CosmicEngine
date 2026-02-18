@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Cosmic.Engine.Rendering;
+using Cosmic.Engine.Scenes;
+using Cosmic.Game.Startup;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -6,9 +9,8 @@ namespace CosmicEngine;
 
 public class Game1 : Game
 {
-
     private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
+    private SceneManager _scenes;
 
     public Game1()
     {
@@ -20,40 +22,21 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
+        _scenes = GameCompositionRoot.Build();
 
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        playerTexture = Content.Load<Texture2D>("assets/spritesheet");
-        playerPosition = new Vector2(100, 100);
-
         // TODO: use this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+        var dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        var keyboard = Keyboard.GetState();
-
-        if (keyboard.IsKeyDown(Keys.Right))
-            playerPosition.X += 200f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        if (keyboard.IsKeyDown(Keys.Left))
-            playerPosition.X -= 200f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        if (keyboard.IsKeyDown(Keys.Up))
-            playerPosition.Y -= 200f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        if (keyboard.IsKeyDown(Keys.Down))
-            playerPosition.Y += 200f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        // TODO: Add your update logic here
+        _scenes.Update(dt);
 
         base.Update(gameTime);
     }
@@ -62,12 +45,7 @@ public class Game1 : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
 
-        _spriteBatch.Begin();
-
-        _spriteBatch.Draw(playerTexture, playerPosition, Color.White);
-
-        _spriteBatch.End();
-        // TODO: Add your drawing code here
+        _scenes.Draw(NullRenderer2D.Instance);
 
         base.Draw(gameTime);
     }
