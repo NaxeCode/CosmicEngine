@@ -1,7 +1,6 @@
 ﻿using Cosmic.Engine.Rendering;
 using Cosmic.Engine.Scenes;
 using System;
-using System.Diagnostics;
 
 namespace Cosmic.Game.Scenes;
 
@@ -19,13 +18,13 @@ public sealed class EmptyScene : IScene
 
     public void OnEnter(SceneContext context)
     {
-        Debug.WriteLine("Empty OnEnter();");
+        Console.WriteLine("Empty OnEnter();");
         _context = context;
     }
 
     public void OnExit()
     {
-        Debug.WriteLine("Empty OnExit();");
+        Console.WriteLine("Empty OnExit();");
         // Nothing
     }
 

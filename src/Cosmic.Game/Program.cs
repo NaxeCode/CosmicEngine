@@ -1,2 +1,4 @@
-﻿using var game = new CosmicEngine.Game1();
+﻿using Cosmic.Game;
+
+using var game = new Game1();
 game.Run();

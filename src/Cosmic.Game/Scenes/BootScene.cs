@@ -1,7 +1,6 @@
 ﻿using Cosmic.Engine.Scenes;
 using Cosmic.Engine.Rendering;
 using System;
-using System.Diagnostics;
 namespace Cosmic.Game.Scenes;
 
 public sealed class BootScene : IScene
@@ -13,11 +12,13 @@ public sealed class BootScene : IScene
     public void Draw(IRenderer2D renderer)
     {
         // Empty for now
+        renderer.FillRect(new IntRect(0, 0, 100, 100), ColorRgba.CosmicBlue);
+        renderer.FillRect(new IntRect(540, 300, 200, 120), ColorRgba.CosmicBlue);
     }
 
     public void OnEnter(SceneContext context)
     {
-        Debug.WriteLine("Boot OnEnter();");
+        Console.WriteLine("Boot OnEnter();");
         _context = context;
         HasRequestedTransition = false;
         NextSceneType = null;
@@ -25,7 +26,7 @@ public sealed class BootScene : IScene
 
     public void OnExit()
     {
-        Debug.WriteLine("Boot OnExit();");
+        Console.WriteLine("Boot OnExit();");
         // Nothing for now
     }
 
