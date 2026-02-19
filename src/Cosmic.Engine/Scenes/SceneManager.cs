@@ -26,6 +26,7 @@ public sealed class SceneManager
 
     public void Update(float deltaTime)
     {
+        _context.Input.Update();
         _current.Update(deltaTime);
 
         if (_current.HasRequestedTransition)

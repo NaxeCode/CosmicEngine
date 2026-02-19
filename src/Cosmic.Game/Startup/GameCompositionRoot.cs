@@ -10,14 +10,14 @@ namespace Cosmic.Game.Startup;
 
 public static class GameCompositionRoot
 {
-    public static SceneManager Build()
+    public static SceneManager Build(MgRenderer2D renderer)
     {
         var actionMap = new Dictionary<string, Keys>
         {
             { "Confirm", Keys.Enter }
         };
 
-        IInputSource input = new MgInputSource(actionMap);
+        IInputSource input = new MgInputSource(actionMap, renderer);
 
         IScene SceneFactory(Type type)
         {

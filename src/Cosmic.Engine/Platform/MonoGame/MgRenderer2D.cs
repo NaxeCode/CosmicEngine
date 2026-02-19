@@ -14,7 +14,27 @@ public sealed class MgRenderer2D : IRenderer2D
     
     private ViewportInfo _viewport;
     public ViewportInfo Viewport => _viewport;
-    
+    public void BeginWorld(Camera2D camera)
+    {
+        var vp = _viewport;
+
+        var halfW = vp.InternalWidth / 2f;
+        var halfH = vp.InternalHeight / 2f;
+
+        var tx = -camera.Position.X;
+        var ty = -camera.Position.Y;
+
+        var transform = Matrix.CreateTranslation(tx, ty, 0f) * Matrix.CreateScale(camera.Zoom, camera.Zoom, 1f) *
+                        Matrix.CreateTranslation(halfW, halfH, 0f);
+        
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: transform);
+    }
+
+    public void BeginUi()
+    {
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+    }
+
     public MgRenderer2D(GraphicsDevice graphicsDevice, RenderConfig config)
     {
         _graphicsDevice = graphicsDevice;
@@ -49,11 +69,6 @@ public sealed class MgRenderer2D : IRenderer2D
     public void Clear(ColorRgba color)
     {
         _graphicsDevice.Clear(new Color(color.R, color.G, color.B, color.A));
-    }
-
-    public void Begin()
-    {
-        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
     }
 
     public void FillRect(IntRect rect, ColorRgba color)

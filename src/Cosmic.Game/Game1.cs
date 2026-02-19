@@ -27,7 +27,9 @@ public class Game1 : Microsoft.Xna.Framework.Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-        _scenes = GameCompositionRoot.Build();
+        _renderer = new MgRenderer2D(GraphicsDevice, RenderConfig.StardewLike);
+        
+        _scenes = GameCompositionRoot.Build(_renderer);
 
         base.Initialize();
     }
@@ -35,7 +37,6 @@ public class Game1 : Microsoft.Xna.Framework.Game
     protected override void LoadContent()
     {
         // TODO: use this.Content to load your game content here
-        _renderer = new MgRenderer2D(GraphicsDevice, RenderConfig.StardewLike);
     }
 
     protected override void Update(GameTime gameTime)
@@ -53,11 +54,7 @@ public class Game1 : Microsoft.Xna.Framework.Game
         
         _renderer.BeginFrame();
         _renderer.Clear(new ColorRgba(Color.Azure.R, Color.Azure.G, Color.Azure.B, Color.Azure.A));
-        _renderer.Begin();
-        
         _scenes.Draw(_renderer);
-        
-        _renderer.End();
         _renderer.EndFrame();
 
         base.Draw(gameTime);
